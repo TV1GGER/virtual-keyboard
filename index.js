@@ -14,7 +14,17 @@ bodyArea.onkeydown = function(event) {
   keyboardKeys.push(event.keyCode);
   console.log(event/*.keyCode,);
 }*/
+let headerTag = document.querySelector('header');
+const h1Tag = document.createElement('h1');
+  h1Tag.innerHTML = "Virtual keyboard";
+  headerTag.append(h1Tag);
 
+let mainTag = document.querySelector('main');
+const keyboardAreaSection = document.createElement("section");
+console.log(keyboardAreaSection);
+  keyboardAreaSection.className = "keyboard-area";
+  
+  mainTag.append(keyboardAreaSection);
 
 function initKeyLineOne(keyLine) {
   let out = '';
@@ -26,35 +36,37 @@ function initKeyLineOne(keyLine) {
 
 function addKeyboardKeys() {
   
-
-  let keyboardAreaClass = document.querySelector('.keyboard-area');
   
   let keyboardArea = '';
   keyboardArea =keyboardArea + initKeyLineOne(keyboardKeysLineOne) /*+ initKeyLineOne(keyboardKeysLineTwo) + initKeyLineOne(keyboardKeysLinethree) + initKeyLineOne(keyboardKeysLinefour)*/;
-  document.querySelector('#keyboard').innerHTML = keyboardArea;
+  const firstLineDiv = document.createElement("div");
+  firstLineDiv.className = "keyLineOne";
+  firstLineDiv.innerHTML = keyboardArea;
+  keyboardAreaSection.append(firstLineDiv);
 
   const secondLineDiv = document.createElement("div");
   secondLineDiv.className = "keyLineTwo";
   secondLineDiv.innerHTML = initKeyLineOne(keyboardKeysLineTwo);
-  keyboardAreaClass.append(secondLineDiv);
+  keyboardAreaSection.append(secondLineDiv);
 
   const thirdLineDiv = document.createElement("div");
   thirdLineDiv.className = "keyLineThree";
   thirdLineDiv.innerHTML = initKeyLineOne(keyboardKeysLinethree);
-  keyboardAreaClass.append(thirdLineDiv);
+  keyboardAreaSection.append(thirdLineDiv);
 
   const fourthLineDiv = document.createElement("div");
   fourthLineDiv.className = "keyLineFour";
   fourthLineDiv.innerHTML = initKeyLineOne(keyboardKeysLinefour);
-  keyboardAreaClass.append(fourthLineDiv);
+  keyboardAreaSection.append(fourthLineDiv);
 
   const fifthLineDiv = document.createElement("div");
   fifthLineDiv.className = "keyLineFive";
   fifthLineDiv.innerHTML = initKeyLineOne(keyboardKeysLinefive);
-  keyboardAreaClass.append(fifthLineDiv);
+  keyboardAreaSection.append(fifthLineDiv);
 }
 
 addKeyboardKeys();
+
 /*initKeyLineOne(keyboardKeysLinethree);
 initKeyLineOne(keyboardKeysLinefour);
 initKeyLineOne(keyboardKeysLinefive);*/
