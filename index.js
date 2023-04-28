@@ -16,7 +16,7 @@ bodyArea.onkeydown = function(event) {
 }*/
 let headerTag = document.querySelector('header');
 const h1Tag = document.createElement('h1');
-  h1Tag.innerHTML = "Virtual keyboard";
+  h1Tag.innerHTML = "Virtual keyboard v.1.0.0";
   headerTag.append(h1Tag);
 
 let mainTag = document.querySelector('main');

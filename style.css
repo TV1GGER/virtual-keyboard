@@ -1,10 +1,14 @@
 .keyboard-area {
+  width:fit-content;
   display: flex;
   flex-direction: column;
-  gap: 5px 5px;
+  gap: 8px 8px;
   border: 3px solid black;
   border-radius: 15px;
   padding: 8px;
+  margin: 0 auto;
+  background-color: rgba(61, 65, 71, 0.945);
+  /*opacity: 88%;*/
 }
 
 .keyLineOne,
@@ -12,24 +16,25 @@
 .keyLineThree,
 .keyLineFour,
 .keyLineFive {
-  width: auto;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-  gap: 5px;
-  /*justify-content: space-between;*/
+  gap: 8px;
+  justify-content:flex-start;
   /*border: 3px solid black;*/
   border-radius: 15px;
 }
 
 .keyLine {
-  min-width: 50px;
-  height: 50px;
+  min-width: 2vw;
+  height: 2vw;
   border: 1px solid black;
-
-  padding: 3px;
+  padding: 5px;
   float: left;
   font-size: calc(1.25vw);
+  cursor: pointer;
   overflow: hidden;
+  border-radius: 5px;
+  background-color: rgba(56, 78, 90, 0.726);
 }
