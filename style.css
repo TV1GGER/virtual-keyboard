@@ -1,3 +1,8 @@
+.keyboard-area-wrapper {
+  width:fit-content;
+  margin: 0 auto;
+}
+
 .keyboard-area {
   width:fit-content;
   display: flex;
@@ -6,7 +11,7 @@
   border: 3px solid black;
   border-radius: 15px;
   padding: 8px;
-  margin: 0 auto;
+  margin: 10px auto;
   background-color: rgba(61, 65, 71, 0.945);
   /*opacity: 88%;*/
 }
@@ -41,4 +46,14 @@
 
 .active-btn {
   background-color: rgba(248, 253, 255, 0.726);
+}
+
+.text-area {
+  width: 100%;
+  display: block;
+  color: rgb(0, 0, 0);
+  margin: 0 auto;
+  font-size: calc(1.25vw);
+  resize:vertical;
+  
 }

@@ -14,17 +14,25 @@ bodyArea.onkeydown = function(event) {
   keyboardKeys.push(event.keyCode);
   console.log(event/*.keyCode,);
 }*/
+
+
 let headerTag = document.querySelector('header');
 const h1Tag = document.createElement('h1');
   h1Tag.innerHTML = "Virtual keyboard v.1.0.0";
   headerTag.append(h1Tag);
 
 let mainTag = document.querySelector('main');
+
+const keyboardAreaWrapper = document.createElement('div');
+keyboardAreaWrapper.className = 'keyboard-area-wrapper';
+mainTag.append(keyboardAreaWrapper);
+
+
 const keyboardAreaSection = document.createElement("section");
 /*console.log(keyboardAreaSection);*/
   keyboardAreaSection.className = "keyboard-area";
   
-  mainTag.append(keyboardAreaSection);
+  keyboardAreaWrapper.append(keyboardAreaSection);
 
 function initKeyLineOne(keyLine) {
   let out = '';
@@ -58,6 +66,17 @@ function initKeyLineOne(keyLine) {
   }
   return out;
 };
+
+
+const textArea = document.createElement('textarea');
+  textArea.rows = '10';
+  textArea.cols = '60';
+  textArea.name = 'message';
+  textArea.className = 'text-area';
+  textArea.placeholder = 'Enter text here...';
+  textArea.type = 'text';
+  keyboardAreaWrapper.prepend(textArea);
+
 
 function addKeyboardKeys() {
   
