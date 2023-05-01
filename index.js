@@ -56,25 +56,30 @@ function translateLang(){
       keyboardKeysLinefive = keyboardKeysLinefiveRu;
   }
 };
+
 translateLang();
+
 let bodyTag = document.querySelector('body');
+
 const headerTag = document.createElement('header');
-bodyTag.prepend(headerTag);
+ bodyTag.prepend(headerTag);
+
 let mainTag = document.createElement('main');
-bodyTag.append(mainTag);
+ bodyTag.append(mainTag);
+
 let footerTag = document.createElement('footer');
-footerTag.className = 'footerTag';
-footerTag.innerHTML = "Клавиатура создана в операционной системе Windows";
-bodyTag.append(footerTag);
+  footerTag.className = 'footerTag';
+  footerTag.innerHTML = "Клавиатура создана в операционной системе Windows";
+  bodyTag.append(footerTag);
+
 let langDiv = document.createElement('div');
-footerTag.append(langDiv);
-langDiv.innerHTML = "Раскладка клавиатуры переключается стрелка 'Вниз' + стрелка 'Вверх'";
+  langDiv.innerHTML = "Раскладка клавиатуры переключается стрелка 'Вниз' + стрелка 'Вверх'";
+  footerTag.append(langDiv);
+
 const h1Tag = document.createElement('h1');
-h1Tag.className = 'h1';
+  h1Tag.className = 'h1';
   h1Tag.innerHTML = "RSS Virtual keyboard v.1.0.0";
   headerTag.append(h1Tag);
-
-//let mainTag = document.querySelector('main');
 
 const keyboardAreaWrapper = document.createElement('div');
 keyboardAreaWrapper.className = 'keyboard-area-wrapper';
@@ -82,9 +87,7 @@ mainTag.append(keyboardAreaWrapper);
 
 
 const keyboardAreaSection = document.createElement("section");
-/*console.log(keyboardAreaSection);*/
   keyboardAreaSection.className = "keyboard-area";
-  
   keyboardAreaWrapper.append(keyboardAreaSection);
 
 function initKeyLineOne(keyLine) {
@@ -120,8 +123,6 @@ function initKeyLineOne(keyLine) {
   return out;
 };
 
-
-
 const textArea = document.createElement('textarea');
   textArea.rows = '10';
   textArea.cols = '60';
@@ -131,10 +132,7 @@ const textArea = document.createElement('textarea');
   textArea.type = 'text';
   keyboardAreaWrapper.prepend(textArea);
 
-
 function addKeyboardKeys() {
-  
-  
   let keyboardArea = '';
   keyboardArea =keyboardArea + initKeyLineOne(keyboardKeysLineOne) /*+ initKeyLineOne(keyboardKeysLineTwo) + initKeyLineOne(keyboardKeysLinethree) + initKeyLineOne(keyboardKeysLinefour)*/;
   const firstLineDiv = document.createElement("div");
@@ -216,7 +214,7 @@ document.onkeydown = function onkeydownListener(event) {
 };
 
 document.onkeyup = function (event) {
-  /*console.log(event);*/
+  
   if((event.key === "CapsLock") && (countCapsLock%2===1)) {
     document.querySelector('.keyboard-area .keyLine[data="' + "CapsLock" + '"]').classList.add('active-btn');
     countCapsLock++;
@@ -232,16 +230,11 @@ document.onkeyup = function (event) {
 }
 }
 
-
 function removeMouseInter() {
-  
   document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
     element.classList.remove('active-btn');
-    
-  
   });
 };
-
 
 document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
   element.onclick = function(event) {
@@ -251,9 +244,8 @@ document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
   }else{
     document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
     element.classList.remove('active-btn');
-    
-  
   });
+
   let code = this.getAttribute('data');
 
   if((code === "CapsLock") && (countCapsLock%2===1)) {
@@ -264,24 +256,8 @@ document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
     countCapsLock++;
   }else{this.classList.add('active-btn');
   setTimeout(removeMouseInter, 100);
-  /*console.log(code);*/
 }
 textArea.value = textArea.value + code.toLocaleLowerCase();
-  /*document.querySelector('text-area', function())*/
   }
-  /*let keyboardEvent = new KeyboardEvent('keydown', {key:'q'});
-  
-let bodyDocument = document.querySelector('.text-area');
-console.log(bodyDocument.dispatchEvent(keyboardEvent));*/
-
-/*if((event.key === "CapsLock") && (countCapsLock%2===1)) {
-  textArea.value = textArea.value + this.getAttribute('data').toLocaleUpperCase();
-}else{*/
-  
-
-}
+ }
 });
-
-/*initKeyLineOne(keyboardKeysLinethree);
-initKeyLineOne(keyboardKeysLinefour);
-initKeyLineOne(keyboardKeysLinefive);*/
