@@ -57,13 +57,24 @@ function translateLang(){
   }
 };
 translateLang();
-
-let headerTag = document.querySelector('header');
+let bodyTag = document.querySelector('body');
+const headerTag = document.createElement('header');
+bodyTag.prepend(headerTag);
+let mainTag = document.createElement('main');
+bodyTag.append(mainTag);
+let footerTag = document.createElement('footer');
+footerTag.className = 'footerTag';
+footerTag.innerHTML = "Клавиатура создана в операционной системе Windows";
+bodyTag.append(footerTag);
+let langDiv = document.createElement('div');
+footerTag.append(langDiv);
+langDiv.innerHTML = "Раскладка клавиатуры переключается стрелка 'Вниз' + стрелка 'Вверх'";
 const h1Tag = document.createElement('h1');
-  h1Tag.innerHTML = "Virtual keyboard v.1.0.0";
+h1Tag.className = 'h1';
+  h1Tag.innerHTML = "RSS Virtual keyboard v.1.0.0";
   headerTag.append(h1Tag);
 
-let mainTag = document.querySelector('main');
+//let mainTag = document.querySelector('main');
 
 const keyboardAreaWrapper = document.createElement('div');
 keyboardAreaWrapper.className = 'keyboard-area-wrapper';
@@ -108,6 +119,7 @@ function initKeyLineOne(keyLine) {
   }
   return out;
 };
+
 
 
 const textArea = document.createElement('textarea');
