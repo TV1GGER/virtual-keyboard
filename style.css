@@ -46,6 +46,13 @@
 
 .active-btn {
   background-color: rgba(248, 253, 255, 0.726);
+  transform: scale(2);
+  transition: 0.4s;
+}
+
+.keyLine:hover {
+  background-color: rgba(248, 253, 255, 0.281);
+  transition: 0.4s;
 }
 
 .text-area {
