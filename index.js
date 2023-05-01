@@ -117,7 +117,7 @@ function eventTab() {
 
 let countCapsLock = 1;
 let countTab = 1;
-document.onkeydown = function (event) {
+document.onkeydown = function onkeydownListener(event) {
   console.log(event);
   if(event.key === "Backspace") {
     document.querySelector('.keyboard-area .keyLine[data="' + "Backspace" + '"]').classList.add('active-btn');
@@ -156,10 +156,10 @@ document.onkeydown = function (event) {
     document.querySelector('.keyboard-area .keyLine[data="' + "Delete" + '"]').classList.add('active-btn');
   }else if(event.key === " ") {
     document.querySelector('.keyboard-area .keyLine[data="' + "Space" + '"]').classList.add('active-btn');
-  }else{
+  }else {
   document.querySelector('.keyboard-area .keyLine[data="' + event.key.toUpperCase() + '"]').classList.add('active-btn');
   }
-}
+};
 
 document.onkeyup = function (event) {
   /*console.log(event);*/
@@ -177,6 +177,57 @@ document.onkeyup = function (event) {
   });
 }
 }
+
+
+function removeMouseInter() {
+  
+  document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
+    element.classList.remove('active-btn');
+    
+  
+  });
+};
+
+
+document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
+  element.onclick = function(event) {
+    if((event.key === "CapsLock") && (countCapsLock%2===0)) {
+    document.querySelector('.keyboard-area .keyLine[data="' + "CapsLock" + '"]').classList.remove('active-btn');
+    countCapsLock++;
+  }else{
+    document.querySelectorAll('.keyboard-area .keyLine').forEach(function(element) {
+    element.classList.remove('active-btn');
+    
+  
+  });
+  let code = this.getAttribute('data');
+
+  if((code === "CapsLock") && (countCapsLock%2===1)) {
+    document.querySelector('.keyboard-area .keyLine[data="' + "CapsLock" + '"]').classList.add('active-btn');
+    countCapsLock++;
+  }else if((code === "CapsLock") && (countCapsLock%2===0)) {
+    document.querySelector('.keyboard-area .keyLine[data="' + "CapsLock" + '"]').classList.remove('active-btn');
+    countCapsLock++;
+  }else{this.classList.add('active-btn');
+  setTimeout(removeMouseInter, 100);
+  /*console.log(code);*/
+}
+textArea.value = textArea.value + code.toLocaleLowerCase();
+  /*document.querySelector('text-area', function())*/
+  }
+  /*let keyboardEvent = new KeyboardEvent('keydown', {key:'q'});
+  
+let bodyDocument = document.querySelector('.text-area');
+console.log(bodyDocument.dispatchEvent(keyboardEvent));*/
+
+/*if((event.key === "CapsLock") && (countCapsLock%2===1)) {
+  textArea.value = textArea.value + this.getAttribute('data').toLocaleUpperCase();
+}else{*/
+  
+
+}
+});
+
 /*initKeyLineOne(keyboardKeysLinethree);
 initKeyLineOne(keyboardKeysLinefour);
 initKeyLineOne(keyboardKeysLinefive);*/
